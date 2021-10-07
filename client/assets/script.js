@@ -83,7 +83,7 @@ function clicked(url){
 
 async function getAll(){
     try{
-        let resp = await fetch('http://localhost:5500/')
+        let resp = await fetch('https://journ-itapi.herokuapp.com/')
         let jsonData = await resp.json()
         let cardbox = document.getElementById('card--container');
         for(let i = 0; i < jsonData.length; i++){
@@ -92,6 +92,7 @@ async function getAll(){
             card.id = `card${i}`
             card.innerHTML = `<a class='entryContent' href="thread.html?${jsonData[i].id}">${jsonData[i].body}</a>
             <div class='bottomBar'>BRUH WTF</div>`;
+
             cardbox.append(card);
         }
     }catch(err){
@@ -103,11 +104,12 @@ async function getAll(){
 function journalPost(){
     journalEntry.addEventListener('submit', (e) => {
         e.preventDefault();
-        let entryConent = e.target.textentry.value
-        if (entryConent){
+
+        let entryContent = e.target.textentry.value
+        if(entryContent){
             const entry = {
                 siteUrl: e.target.chosenGifUrl.value,
-                body: entryConent
+                body: entryContent
             }
             console.log(entry)
             const methods = {
@@ -118,7 +120,8 @@ function journalPost(){
                 }
             };
             
-            fetch('http://localhost:5500/', methods)
+
+            fetch('https://journ-itapi.herokuapp.com/', methods)
             .then(res => {
                 res.json()
                 document.querySelector('#chosenGifUrl').value ='';
