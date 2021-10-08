@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
+    <script defer src="./emoji/emoji.js"></script>
     <script defer src="./assets/script.js"></script>
     <script defer type="text/javascript">
         function countChars(textentry,displayto) {
@@ -24,7 +25,7 @@
             <form  id='journalentry'>
                 <textarea  id="textentry" name="textentry" rows="4" cols="50" maxlength="300" minlength="10" 
                 onkeyup="countChars('textentry','charcount');" 
-                onkeydown="countChars('textentry','charcount');" onmouseout="countChars('textentry','charcount');"></textarea>
+                onkeydown="countChars('textentry','charcount');" onmouseout="countChars('textentry','charcount');" placeholder="Tell us about your day!"></textarea>
                 <span id="charcount">0/300</span>
                 <br><br>
                 <form id = "gifSearch">
